@@ -12,14 +12,14 @@
   </head>
 
   <body>
-    <nav class="navbar bg-light border-bottom border-body ">
-  <div class="container-fluid">
-    <p class="navbar-brand">Ghibli News</p>
-    <p class="d-flex">
-       <%= link_to "New Article", new_article_path%>
-    </p>
-  </div>
-</nav>
+    <nav class="navbar bg-light border-bottom border-body">
+      <div class="container-fluid ps-5 pe-5">
+        <p class="navbar-brand">Ghibli News</p>
+        <p class="d-flex">
+          <%= link_to "New Article", new_article_path, class: "text-decoration-none text-dark"%>
+        </p>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>

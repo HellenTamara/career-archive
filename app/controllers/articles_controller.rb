@@ -12,8 +12,13 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.create(params_filtered)
-    redirect_to article_path(@article)
+    @article = Article.new(params_filtered)
+    if @article.save
+      redirect_to article_path(@article)
+    else
+      render :new, status: :unprocessable_entity
+    end
+
   end
 
   def edit
@@ -22,14 +27,17 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    @article.update(params_filtered)
-    redirect_to article_path(@article)
+    if @article.update(params_filtered)
+      redirect_to article_path(@article)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-    redirect_to articles_path
+    redirect_to articles_path, status: :see_other
   end
 
   private
