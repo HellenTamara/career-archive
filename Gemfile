@@ -37,6 +37,8 @@ gem "jbuilder"
 
 #Custom added
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
+gem 'simple_form'
+gem 'pg'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mswin mswin64 mingw x64_mingw jruby ]
