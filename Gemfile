@@ -45,6 +45,7 @@ gem 'bootstrap', '~> 5.3.2'
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem 'jquery-rails'
+gem "dotenv-rails"
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
