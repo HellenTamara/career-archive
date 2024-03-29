@@ -33,6 +33,9 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  # Active Storage
+  config.active_storage.service = :cloudinary
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
