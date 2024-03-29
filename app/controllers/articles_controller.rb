@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  
+
   def index
     @articles = Article.all
   end
@@ -45,6 +45,6 @@ class ArticlesController < ApplicationController
   private
 
   def params_filtered
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content, :photos [])
   end
 end

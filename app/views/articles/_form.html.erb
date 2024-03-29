@@ -2,5 +2,6 @@
   <%= f.input :title %>
   <%= f.input :date %>
   <%= f.input :content %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.button :submit %>
 <% end %>
