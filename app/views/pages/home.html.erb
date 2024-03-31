@@ -1,2 +1,52 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<section id="header" class="container">
+  <div class="d-flex align-items-center mt-5 mb-5">
+    <div class="header-left">
+      <h1>Unleash Your Potential: Track, Achieve, Excel with Career Archive</h1>
+      <div class="cta-btn">
+        <%= link_to "Create an account", new_user_registration_path %>
+      </div>
+    </div>
+    <%= image_tag "growth.png", alt: "text", class: "header-img" %>
+  </div>
+</section>
+<section id="features">
+  <h2>Features:</h2>
+  <ul>
+    <li>
+      <p>Journal: Chronicle your daily activities, accomplishments, and challenges. Reflect on your growth and learning experiences as you navigate through your career.</p>
+    </li>
+    <li>
+      <p>Goals: Set ambitious yet achievable goals for yourself. Track your progress and celebrate your victories as you mark them complete.</p>
+    </li>
+    <li>
+      <p>Media Upload: Enhance your entries with visual aids. Upload photos to complement your achievements and memories.</p>
+    </li>
+    <li>
+      <p>Search Functionality: Effortlessly find specific entries by date or title. Quickly locate past accomplishments or insights to aid in evaluations or job interviews.</p>
+    </li>
+  </ul>
+</section>
+<section id="benefits">
+  <h2>How it can help you:</h2>
+  <p>Career Archive is more than just a journaling tool; it's your personalized career companion. Here's why you should choose us:</p>
+  <ul>
+    <li>
+      <p>Streamlined Organization: Say goodbye to scattered notes and files. Career Archive centralizes all your career-related information in one secure platform.</p>
+    </li>
+    <li>
+      <p>Strategic Planning: Set clear goals and develop actionable plans to achieve them. With Career Archive, you'll stay focused and motivated on your career trajectory.</p>
+    </li>
+    <li>
+      <p>Professional Development: Leverage feedback and insights to continuously improve yourself. Career Archive fosters a culture of growth and learning.</p>
+    </li>
+    <li>
+      <p>Effortless Retrieval: Our intuitive search functionality ensures that you can access relevant information whenever you need it. No more digging through stacks of paperwork or endless email threads.</p>
+    </li>
+    <li>
+      <p>Confidence Boost: Armed with a comprehensive record of your achievements, you'll approach job interviews and salary negotiations with confidence and clarity.</p>
+    </li>
+  </ul>
+</section>
+<footer>
+  <p>Copyright</p>
+</footer>
