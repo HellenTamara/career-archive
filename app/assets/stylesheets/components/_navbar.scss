@@ -1,14 +1,32 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  border-bottom: 1px black solid;
+  padding: 0.5rem 1rem;
+  height: 70px;
+
+  .nav-link {
+    font-family: Roboto;
+  }
+
+  .logo {
+    font-size: 19px;
+  }
+
+  .login {
+    font-family: Roboto;
+    color: #7B5FF1;
+    text-decoration: none;
+    text-align: center;
+    border: 2px #7B5FF1 solid;
+    border-radius: 23px;
+    padding: 9px 29px;
+  }
+
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
 }
 
 .avatar {
