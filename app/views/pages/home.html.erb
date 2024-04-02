@@ -47,26 +47,38 @@
     </li>  %>
   </ul>
 </section>
-<section id="benefits">
+<section id="benefits" class="container">
   <h2>How it can help you:</h2>
-  <p>Career Archive is more than just a journaling tool; it's your personalized career companion. Here's why you should choose us:</p>
-  <ul>
-    <li>
-      <p>Streamlined Organization: Say goodbye to scattered notes and files. Career Archive centralizes all your career-related information in one secure platform.</p>
-    </li>
-    <li>
-      <p>Strategic Planning: Set clear goals and develop actionable plans to achieve them. With Career Archive, you'll stay focused and motivated on your career trajectory.</p>
-    </li>
-    <li>
-      <p>Professional Development: Leverage feedback and insights to continuously improve yourself. Career Archive fosters a culture of growth and learning.</p>
-    </li>
-    <li>
-      <p>Effortless Retrieval: Our intuitive search functionality ensures that you can access relevant information whenever you need it. No more digging through stacks of paperwork or endless email threads.</p>
-    </li>
-    <li>
-      <p>Confidence Boost: Armed with a comprehensive record of your achievements, you'll approach job interviews and salary negotiations with confidence and clarity.</p>
-    </li>
-  </ul>
+  <div class="benefits-list">
+    <div class="benefits-img">
+      <%= image_tag "planning.png", alt: "planning" %>
+    </div>
+    <ul>
+      <li>
+        <p>Career Archive is more than just a journaling tool, it's your personalized career companion.</p>
+      </li>
+      <li>
+        <p><i class="fa-solid fa-check"></i>Streamlined Organization</p>
+      </li>
+      <li>
+        <p><i class="fa-solid fa-check"></i>Strategic Planning</p>
+      </li>
+      <li>
+        <p><i class="fa-solid fa-check"></i>Professional Development</p>
+      </li>
+      <li>
+        <p><i class="fa-solid fa-check"></i>Effortless Retrieval</p>
+      </li>
+      <li>
+        <p><i class="fa-solid fa-check"></i>Confidence Boost</p>
+      </li>
+      <li>
+        <div class="cta-btn">
+          <%= link_to "Create an account", new_user_registration_path %>
+        </div>
+      </li>
+    </ul>
+  </div>
 </section>
 <footer>
   <p>Copyright</p>
