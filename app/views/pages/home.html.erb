@@ -10,20 +10,41 @@
   </div>
 </section>
 <section id="features">
-  <h2>Features:</h2>
-  <ul>
-    <li>
-      <p>Journal: Chronicle your daily activities, accomplishments, and challenges. Reflect on your growth and learning experiences as you navigate through your career.</p>
+  <ul class="container">
+    <li class="feature">
+      <p class="feature-number">01</p>
+      <%= image_tag "files.png", alt: "files" %>
+      <div class="feature-info">
+        <p class="feature-title">Journal</p>
+        <p>Chronicle your daily activities, accomplishments, and challenges.</p>
+      </div>
     </li>
-    <li>
-      <p>Goals: Set ambitious yet achievable goals for yourself. Track your progress and celebrate your victories as you mark them complete.</p>
+    <li class="feature ">
+      <p class="feature-number">02</p>
+      <div class="feature-box">
+        <%= image_tag "goal.png", alt: "files" %>
+      </div>
+      <div class="feature-info">
+        <p class="feature-title">Goals</p>
+        <p>Set ambitious yet achievable goals for yourself. Track your progress and celebrate your victories as you mark them complete.</p>
+      </div>
     </li>
-    <li>
-      <p>Media Upload: Enhance your entries with visual aids. Upload photos to complement your achievements and memories.</p>
+    <li class="feature">
+      <p class="feature-number">03</p>
+      <%= image_tag "upload.png", alt: "files" %>
+      <div class="feature-info">
+        <p class="feature-title">Media Upload</p>
+        <p>Enhance your entries with visual aids. Upload photos to complement your achievements and memories.</p>
+      </div>
     </li>
-    <li>
-      <p>Search Functionality: Effortlessly find specific entries by date or title. Quickly locate past accomplishments or insights to aid in evaluations or job interviews.</p>
-    </li>
+    <%# <li class="feature flex-row-reverse">
+      <p class="feature-number">04</p>
+      <%= image_tag "search.png", alt: "files" %>
+    <%# <div class="feature-info">
+        <p class="feature-title">Search Functionality</p>
+        <p>Effortlessly find specific entries by date or title. Quickly locate past accomplishments or insights to aid in evaluations or job interviews.</p>
+      </div>
+    </li>  %>
   </ul>
 </section>
 <section id="benefits">
