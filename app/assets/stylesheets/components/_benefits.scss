@@ -1,0 +1,44 @@
+#benefits {
+  text-align: center;
+  padding: 70px 0;
+
+  h2 {
+    font-family: Roboto;
+    margin: 1rem 0 -2rem 0;
+    text-decoration: underline  #7B5FF1;
+
+  }
+}
+
+.benefits-list {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  img {
+    height: 34rem;
+
+  }
+
+  ul {
+   margin: 0;
+    list-style: none;
+    text-align: left;
+    width: 40%;
+
+    li:nth-child(1) p{
+      margin-bottom: 2rem;
+      font-size: 19px;
+    }
+  }
+}
+
+.benefits-img {
+  width: 50%;
+}
+
+.fa-solid.fa-check {
+  font-size: 24px;
+  margin-right: 10px;
+}
