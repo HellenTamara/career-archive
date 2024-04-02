@@ -1,0 +1,53 @@
+#features {
+  background-color: rgba(123, 95, 241, 0.1);
+  padding: 70px 0;
+
+  ul {
+    display: flex;
+    justify-content: space-evenly;
+
+    li:nth-child(1) {
+      padding-top: 15px;
+    }
+  }
+}
+
+.feature {
+  background-color: white;
+  border-radius: 15px;
+  list-style: none;
+  position: relative;
+  width: 33%;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    height: 170px;
+    margin: 0 15px;
+    align-self: center;
+  }
+}
+
+.feature-info {
+  margin-top: 5px;
+  text-align: center;
+  width: 80%;
+}
+
+.feature-title {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.feature-number {
+  font-size: 70px;
+  position: absolute;
+  left: -1rem;
+  top: -3rem;
+  font-family: "Noto Sans Mono", monospace;
+  font-weight: 800;
+  color: rgba(205, 204, 204, 0.5);
+}
