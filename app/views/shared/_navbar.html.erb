@@ -1,13 +1,24 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+
+
+<nav class="navbar bg-body-tertiary  navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "Career Archive", "/", class: "nav-link logo" %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <% if user_signed_in? %>
+      <%= link_to "Career Archive", articles_path, class: "nav-link logo" %>
+    <% else %>
+      <%= link_to "Career Archive", "/", class: "nav-link logo" %>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+     <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-        <li class="nav-item active">
+          <li class="nav-item active">
             <%= link_to "All Entries", articles_path, class: "text-decoration-none text-dark", class: "nav-link" %>
           </li>
           <li class="nav-item ">
@@ -20,8 +31,13 @@
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "login" %>
           </li>
+          <li class="nav-item">
+            <%= link_to "Signup", new_user_registration_path, class: "signup" %>
+          </li>
         <% end %>
       </ul>
+
+      </div>
     </div>
   </div>
-</div>
+</nav>
