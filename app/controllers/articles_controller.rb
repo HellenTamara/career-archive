@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
     @articles = current_user.articles
     @articles_list = current_user.articles
     if params[:start_date].present?
-      @articles_list = @articles_list.where(date: params[:start_date]..params[:end_date])
+      @articles_list = Article.where(date: params[:start_date]..params[:end_date], user_id: current_user.id)
     end
   end
 
@@ -48,6 +48,6 @@ class ArticlesController < ApplicationController
   private
 
   def params_filtered
-    params.require(:article).permit(:title, :content, :photos, :date, :start_date )
+    params.require(:article).permit(:title, :content, :photos, :date, :start_date, :end_date )
   end
 end

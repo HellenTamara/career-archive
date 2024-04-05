@@ -1,6 +1,8 @@
 .calendar-heading {
   display: flex;
   margin: 2rem 0 2rem 0;
+  width: 100%;
+  align-items: center;
 
   a:nth-child(1) {
     align-self: flex-start;
@@ -26,6 +28,8 @@
 }
 
 .simple-calendar {
+  width: 100%;
+
   .table {
     height: 66vh;
     margin-bottom: 2rem;
@@ -85,19 +89,30 @@
   }
 
   p {
-    margin-bottom:  8px;
+    margin-bottom: 8px;
   }
 }
 
-.all-entries {
+.calendar-entries {
   display: flex;
   flex-direction: row;
+  border: 1px solid #DDDDDD;
+  border-radius: 5px;
+  width: 100%;
+  padding: 1rem;
 }
 
-.calendar-entries {
-  width: 70%;
-}
+.calendar-list {
+  display: flex;
 
-.list-entries {
-  width: 30%;
+  .list-entries {
+    width: 35%;
+    height: 66vh;
+    border-top: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
