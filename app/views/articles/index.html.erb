@@ -20,7 +20,12 @@
       <% end %>
     </div>
     <div class="list-entries">
-      
+      <%= render "search" %>
+      <% @articles_list.each do |article| %>
+        <%= link_to article_path(article) do %>
+          <p> <%= article.date %> <%= article.title %> </p>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
