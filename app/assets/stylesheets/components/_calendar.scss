@@ -1,0 +1,103 @@
+.calendar-heading {
+  display: flex;
+  margin: 2rem 0 2rem 0;
+
+  a:nth-child(1) {
+    align-self: flex-start;
+  }
+
+  a {
+    border: 1px solid #c1bfbf;
+    padding: 0.3rem 0.5rem;
+    margin: 0 0.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #828A93;
+  }
+
+  .nav {
+    margin: 0 auto;
+    align-items: center;
+  }
+}
+
+.calendar-title {
+  font-size: 20px;
+}
+
+.simple-calendar {
+  .table {
+    height: 66vh;
+    margin-bottom: 2rem;
+  }
+
+  thead th {
+    border: none;
+    text-align: center;
+    background-color: #F9FAFB;
+    color: #828A93;
+  }
+
+  .table>:not(:first-child) {
+    border-top: none;
+  }
+
+  .date-number {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+
+    p {
+      font-size: 20px;
+    }
+  }
+
+  .today {
+    background-color: white !important;
+  }
+
+  .today .date-today p {
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    background-color: #7B5FF1;
+    border-radius: 50%;
+    color: white;
+  }
+
+  .next-month,
+  .prev-month {
+    background-color: white !important;
+    color: #c1bfbf;
+  }
+
+}
+
+.entry {
+  width: 100%;
+  background-color: #F1EFFE;
+  border-radius: 5px;
+
+  a {
+    text-decoration: none;
+    margin-left: 10px;
+    color: #7B5FF1;
+  }
+
+  p {
+    margin-bottom:  8px;
+  }
+}
+
+.all-entries {
+  display: flex;
+  flex-direction: row;
+}
+
+.calendar-entries {
+  width: 70%;
+}
+
+.list-entries {
+  width: 30%;
+}

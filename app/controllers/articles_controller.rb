@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.all
+    @articles = current_user.articles
   end
 
   def show
@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(params_filtered)
+    @article.user = current_user
     if @article.save
       redirect_to article_path(@article)
     else
@@ -43,6 +44,6 @@ class ArticlesController < ApplicationController
   private
 
   def params_filtered
-    params.require(:article).permit(:title, :content, :photos [])
+    params.require(:article).permit(:title, :content, :photos, :date )
   end
 end
