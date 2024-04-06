@@ -9,6 +9,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @objectives = Objective.all.where(user_id: current_user.id)
   end
 
   def new
