@@ -40,6 +40,25 @@
   .benefits-img {
     width: 30%;
   }
+
+  // calendar
+  .calendar-list {
+    flex-direction: column;
+  }
+
+  .calendar-entries .simple-calendar {
+    .table {
+      height: 40vh;
+    }
+
+    .list-entries {
+      border: none;
+      width: 100%;
+
+    }
+  }
+
+
 }
 
 @media (min-width: 768px) {
@@ -112,4 +131,45 @@
       height: 19rem;
     }
   }
+
+  // calendar
+
+  .calendar-heading {
+    flex-direction: column;
+
+    a:nth-child(1) {
+      display: none;
+    }
+
+    .nav {
+      a:nth-child(1) {
+        display: block;
+      }
+
+    }
+
+    .search-form {
+      width: 80%;
+    }
+  }
+
+  .container .calendar-entries {
+    padding: 1rem 0.5rem;
+  }
+
+  .simple-calendar {
+    .date-number .date-today p {
+      font-size: 12px;
+    }
+
+    .today .date-number .date-today p {
+      width: 19px;
+    }
+  }
+
+  .simple-calendar th,
+  .simple-calendar td {
+    font-size: 12px;
+  }
+
 }
