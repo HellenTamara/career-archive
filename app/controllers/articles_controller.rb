@@ -1,6 +1,10 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.all
+    @articles = current_user.articles
+    @articles_list = current_user.articles
+    if params[:start_date].present?
+      @articles_list = Article.where(date: params[:start_date]..params[:end_date], user_id: current_user.id)
+    end
   end
 
   def show
@@ -13,6 +17,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(params_filtered)
+    @article.user = current_user
     if @article.save
       redirect_to article_path(@article)
     else
@@ -43,6 +48,6 @@ class ArticlesController < ApplicationController
   private
 
   def params_filtered
-    params.require(:article).permit(:title, :content, :photos [])
+    params.require(:article).permit(:title, :content, :photos, :date, :start_date, :end_date )
   end
 end

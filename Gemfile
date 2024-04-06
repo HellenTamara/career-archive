@@ -47,6 +47,7 @@ gem "font-awesome-sass", "~> 6.1"
 gem 'jquery-rails'
 gem "dotenv-rails"
 gem "cloudinary"
+gem "simple_calendar"
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

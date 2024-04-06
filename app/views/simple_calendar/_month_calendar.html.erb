@@ -1,0 +1,48 @@
+<div class="simple-calendar">
+  <div class="calendar-heading">
+    <%= link_to t('simple_calendar.today', default: 'Today'), calendar.url_for_today_view %>
+    <div class="nav">
+      <%= link_to calendar.url_for_previous_view do %>
+        <i class="fa-solid fa-arrow-left"></i>
+      <% end %>
+      <time datetime="<%= start_date.strftime('%Y-%m') %>" class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></time>
+      <%= link_to calendar.url_for_next_view do %>
+        <i class="fa-solid fa-arrow-right"></i>
+      <% end %>
+    </div>
+    <%= render "articles/search" %>
+  </div>
+  <div class="calendar-list">
+    <table class="table">
+      <thead>
+        <tr>
+          <% date_range.slice(0, 7).each do |day| %>
+            <th><%= t('date.abbr_day_names')[day.wday] %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% date_range.each_slice(7) do |week| %>
+          <tr>
+            <% week.each do |day| %>
+              <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+                <% instance_exec(day, calendar.sorted_events_for(day), &passed_block) %>
+              <% end %>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="list-entries">
+      <% @articles_list.each do |article| %>
+        <div class="entry-card">
+          <%= link_to article_path(article) do %>
+            <%= article.date %>
+            <p><%= article.title %></p>
+          </div>
+        <% end %>
+      <% end %>
+      <%= link_to "New entry", new_article_path, class: "new-entry" %>
+    </div>
+  </div>
+</div>

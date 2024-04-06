@@ -1,0 +1,5 @@
+<%= form_with method: :get, class: "d-flex m-1 search-form" do |form| %>
+  <%= form.date_field :start_date, value: params[:start_date] %>
+  <%= form.date_field :end_date, value: params[:end_date] %>
+  <%= form.submit "Filter", class: "search-btn" %>
+<% end %>

@@ -1,7 +1,21 @@
-<div class="container d-flex justify-content-center ">
-  <ul>
-    <% @articles.each do |item| %>
-      <p class="titles"><%= link_to item.title, article_path(item), class: "text-decoration-none text-dark" %></p>
+<div class="container mt-3">
+  <h4 id="align-center">All entries</h4>
+  <div class="calendar-entries">
+    <%= month_calendar do |date| %>
+      <div class="calendar">
+        <div class="date-number">
+          <div class="date-today">
+            <p><%= date.day %></p>
+          </div>
+        </div>
+        <% @articles.each do |item| %>
+          <% if item.date == date %>
+            <div class="entry">
+              <p> <%= link_to item.title, article_path(item)  %> </p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>
