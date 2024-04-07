@@ -1,0 +1,62 @@
+.entry-page {
+  display: flex;
+}
+
+.objectives-container {
+  width: 30%;
+  height: fit-content;
+  padding: 3rem;
+  margin: 1rem 3rem 3rem 3rem;
+  border: 1px solid #DDDDDD;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: fixed;
+  top: 110px; /* Adjust top, left, right, bottom as needed */
+  left: 0;
+  /* Add any other positioning properties as needed */
+
+  h2 {
+    align-self: center;
+    margin-bottom: 1rem;
+    font-family: "Roboto";
+  }
+}
+
+.new-objective-btn {
+  background-color: #7B5FF1;
+  color: white;
+  margin-top: 1rem;
+}
+
+.content-container {
+  width: 60%;
+  height: fit-content;
+  padding: 3rem;
+  margin: 1rem 3rem 3rem 37%;
+  border: 1px solid #DDDDDD;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.heading {
+  text-align: center;
+}
+
+.files {
+  .file {
+    height: 20rem;
+  }
+  height: 30%;
+}
+
+.icons {
+  align-self: flex-end;
+  font-size: 20px;
+
+  a {
+    text-decoration: none;
+  }
+}
