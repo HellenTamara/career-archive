@@ -1,24 +1,56 @@
-<h1><%= @article.title%>
-  <%= link_to "✏️", edit_article_path %>
-  <%= link_to "❌",
+<div class="entry-page d-flex">
+  <div class="objectives-container">
+    <p>Objectives</p>
+    <% @objectives.each do |objective| %>
+      <% if !objective.achieved? %>
+        <div class="d-flex flex-direction-row ">
+          <%= simple_form_for objective do |f| %>
+            <%= f.input :achieved, as: :hidden, label: false,  input_html: { value: true}  %>
+            <%= f.submit '✔', class: 'button-confirm' %>
+          <% end %>
+          <%= objective.name %>
+        </div>
+      <% else %>
+        <p >✅<%= objective.name %></p>
+      <% end %>
+    <% end %>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Add new objective
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for Objective do |f| %>
+              <%= f.input :name %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <%= f.button :submit, "create" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-container">
+    <h1><%= @article.title%></h1>
+    <% if @article.photos.attached?%>
+      <% @article.photos.each do |photo| %>
+        <%= cl_image_tag photo.key%>
+      <% end %>
+    <% end %>
+    <p><%= @article.content%></p>
+    <%= link_to "✏️", edit_article_path %>
+    <%= link_to "❌",
   article_path(@article),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
 %>
-</h1>
-<p>Objectives</p>
-<% @objectives.each do |objective| %>
-  <% if !objective.achieved? %>
-    <div class="d-flex justify-content-center ">
-      <%= objective.name %>
-      <%= simple_form_for objective do |f| %>
-        <%= f.input :achieved, as: :boolean, input_html: { checked: objective.achieved }, wrapper_html: { class: 'checkbox-wrapper' } %>
-        <%= f.submit 'Confirm', class: 'button-confirm' %>
-      <% end %>
-    </div>
-  <% else %>
-    <p class='objective-tag text-center'><%= objective.achieved %></p>
-  <% end %>
-<% end %>
-<p>Content</p>
-<p><%= @article.content%></p>
-<%= link_to "<- All articles", articles_path %>
+    <%= link_to "<- All articles", articles_path %>
+  </div>
+</div>

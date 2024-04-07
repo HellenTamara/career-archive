@@ -49,6 +49,6 @@ class ArticlesController < ApplicationController
   private
 
   def params_filtered
-    params.require(:article).permit(:title, :content, :photos, :date, :start_date, :end_date )
+    params.require(:article).permit(:title, :content,:date, :start_date, :end_date, photos:[] )
   end
 end

@@ -9,7 +9,7 @@ class ObjectivesController < ApplicationController
     @objective = Objective.new(objectives_params)
     @objective.user = current_user
     if @objective.save
-      redirect_to objectives_path
+      redirect_back fallback_location: root_path, notice: 'Objective created successfully.'
     else
       render :index, status: :unprocessable_entity
     end
