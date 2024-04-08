@@ -1,12 +1,12 @@
 .entry-card {
-  background-color: #F1EFFE;
+  background-color: $light-purple;
   border-radius: 5px;
   width: 95%;
   margin: 0.5rem 0 0 0;
 
   a {
     text-decoration: none;
-    color: #7B5FF1;
+    color: $purple;
     margin-left: 0.5rem;
   }
 
@@ -18,12 +18,12 @@
 }
 
 .new-entry {
-  background-color: #7B5FF1;
+  background-color: $purple;
   border-radius: 5px;
   width: 95%;
   padding: 0.5rem;
   margin-top: 0.5rem;
   text-align: center;
-  color: white;
+  color: $white;
   text-decoration: none;
 }

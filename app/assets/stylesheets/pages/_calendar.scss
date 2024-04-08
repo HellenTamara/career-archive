@@ -1,3 +1,10 @@
+.calendar-container {
+  width: 100vw;
+  background-color: $light-gray;
+  margin: 0;
+  padding: 3rem;
+}
+
 .calendar-heading {
   display: flex;
   margin: 2rem 0 2rem 0;
@@ -14,7 +21,7 @@
     margin: 0 0.5rem;
     border-radius: 5px;
     text-decoration: none;
-    color: #828A93;
+    color: $dark-gray;
   }
 
   .nav {
@@ -38,8 +45,8 @@
   thead th {
     border: none;
     text-align: center;
-    background-color: #F9FAFB;
-    color: #828A93;
+    background-color: $white;
+    color: $dark-gray;
   }
 
   .table>:not(:first-child) {
@@ -57,21 +64,21 @@
   }
 
   .today {
-    background-color: white !important;
+    background-color: $white !important;
   }
 
   .today .date-today p {
     width: 30px;
     display: flex;
     justify-content: center;
-    background-color: #7B5FF1;
+    background-color: $purple;
     border-radius: 50%;
-    color: white;
+    color: $white;
   }
 
   .next-month,
   .prev-month {
-    background-color: white !important;
+    background-color: $white !important;
     color: #c1bfbf;
   }
 
@@ -79,13 +86,13 @@
 
 .entry {
   width: 100%;
-  background-color: #F1EFFE;
+  background-color: $light-purple;
   border-radius: 5px;
 
   a {
     text-decoration: none;
     margin-left: 10px;
-    color: #7B5FF1;
+    color: $purple;
   }
 
   p {
@@ -96,8 +103,9 @@
 .calendar-entries {
   display: flex;
   flex-direction: row;
-  border: 1px solid #DDDDDD;
-  border-radius: 5px;
+  background-color: $white;
+
+  border-radius: 15px;
   width: 100%;
   padding: 1rem;
 }
