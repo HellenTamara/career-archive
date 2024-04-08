@@ -5,11 +5,11 @@
   input {
     border: 1px solid #DDDDDD;
     border-radius: 5px;
-    color: #828A93;
+    color: $dark-gray;
   }
 
   .search-btn {
-    background-color: white;
-    color: #828A93;
+    background-color: $white;
+    color: $dark-gray;
   }
 }

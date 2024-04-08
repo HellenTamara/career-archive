@@ -1,3 +1,9 @@
+.entry-page-container {
+  background-color: $light-gray;
+  width: 100vw;
+  height: 83vh;
+}
+
 .entry-page {
   display: flex;
 }
@@ -6,16 +12,14 @@
   width: 30%;
   height: fit-content;
   padding: 3rem;
-  margin: 1rem 3rem 3rem 3rem;
-  border: 1px solid #DDDDDD;
-  border-radius: 5px;
+  margin: 0 3rem 3rem 3rem;
+  background-color: $white;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   position: fixed;
-  top: 110px; /* Adjust top, left, right, bottom as needed */
-  left: 0;
-  /* Add any other positioning properties as needed */
+  top: 110px;
 
   h2 {
     align-self: center;
@@ -25,8 +29,8 @@
 }
 
 .new-objective-btn {
-  background-color: #7B5FF1;
-  color: white;
+  background-color: $purple;
+  color: $white;
   margin-top: 1rem;
 }
 
@@ -35,8 +39,8 @@
   height: fit-content;
   padding: 3rem;
   margin: 1rem 3rem 3rem 37%;
-  border: 1px solid #DDDDDD;
-  border-radius: 5px;
+  background-color: $white;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -63,6 +67,7 @@
   font-size: 20px;
 
   a {
+    color: $purple;
     text-decoration: none;
   }
 }

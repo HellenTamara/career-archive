@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $white;
   border-bottom: 1px black solid;
   padding: 0.5rem 1rem;
   height: 70px;
@@ -16,17 +16,17 @@
   .login,
   .signup {
     font-family: Roboto;
-    color: #7B5FF1;
+    color: $purple;
     text-decoration: none;
     text-align: center;
-    border: 2px #7B5FF1 solid;
+    border: 2px $purple solid;
     border-radius: 23px;
     padding: 9px 29px;
   }
 
   .signup {
-    background-color: #7B5FF1;
-    color: white;
+    background-color: $purple;
+    color: $white;
     margin-left: 10px;
   }
 }

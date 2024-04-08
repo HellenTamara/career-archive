@@ -15,11 +15,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #7B5FF1;
+  background-color: $purple;
 
   a {
     text-decoration: none;
-    color: white;
+    color: $white;
     font-family: Roboto;
   }
 }
