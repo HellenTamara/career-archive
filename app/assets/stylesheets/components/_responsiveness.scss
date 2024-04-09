@@ -58,7 +58,9 @@
     }
   }
 
-
+  .calendar {
+    height: 80px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -133,9 +135,13 @@
   }
 
   // calendar
+  .calendar-container {
+    padding: 1rem 1rem;
+  }
 
   .calendar-heading {
     flex-direction: column;
+    margin-bottom: 1rem;
 
     a:nth-child(1) {
       display: none;
@@ -153,23 +159,11 @@
     }
   }
 
-  .container .calendar-entries {
-    padding: 1rem 0.5rem;
+  .table {
+    display: none;
   }
 
-  .simple-calendar {
-    .date-number .date-today p {
-      font-size: 12px;
-    }
-
-    .today .date-number .date-today p {
-      width: 19px;
-    }
+  .calendar-entries .simple-calendar .list-entries {
+    height: fit-content;
   }
-
-  .simple-calendar th,
-  .simple-calendar td {
-    font-size: 12px;
-  }
-
 }
