@@ -16,7 +16,7 @@
   }
 
   a {
-    border: 1px solid #c1bfbf;
+    border: 1px solid $border-gray;
     padding: 0.3rem 0.5rem;
     margin: 0 0.5rem;
     border-radius: 5px;
@@ -79,7 +79,7 @@
   .next-month,
   .prev-month {
     background-color: $white !important;
-    color: #c1bfbf;
+    color: $border-gray;
   }
 
 }
@@ -116,9 +116,9 @@
   .list-entries {
     width: 35%;
     height: 66vh;
-    border-top: 1px solid #DDDDDD;
-    border-right: 1px solid #DDDDDD;
-    border-bottom: 1px solid #DDDDDD;
+    border-top: 1px solid $border-gray;
+    border-right: 1px solid $border-gray;
+    border-bottom: 1px solid $border-gray;
     display: flex;
     flex-direction: column;
     align-items: center;
