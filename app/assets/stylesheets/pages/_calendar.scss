@@ -2,7 +2,7 @@
   width: 100vw;
   background-color: $light-gray;
   margin: 0;
-  padding: 3rem;
+  padding: 1rem 3rem;
 }
 
 .calendar-heading {
@@ -115,7 +115,8 @@
 
   .list-entries {
     width: 35%;
-    height: 66vh;
+    height: 74.8vh;
+    overflow: scroll;
     border-top: 1px solid $border-gray;
     border-right: 1px solid $border-gray;
     border-bottom: 1px solid $border-gray;
@@ -123,4 +124,10 @@
     flex-direction: column;
     align-items: center;
   }
+}
+
+
+.calendar {
+  height: 110px;
+  overflow: auto;
 }
