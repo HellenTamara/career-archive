@@ -1,7 +1,16 @@
 .entry-page-container {
   background-color: $light-gray;
+  padding-top: 1rem;
   width: 100vw;
-  height: 83vh;
+  height: auto;
+}
+
+.all-entries-btn {
+  i {
+    text-decoration: none;
+    color: #000000;
+    font-size: 20px;
+  }
 }
 
 .entry-page {
@@ -25,6 +34,16 @@
     align-self: center;
     margin-bottom: 1rem;
     font-family: "Roboto";
+  }
+
+  i {
+    color: $purple;
+    text-decoration: none;
+    margin-right: 0.5rem;
+  }
+
+  .button-confirm {
+    padding: 0;
   }
 }
 
@@ -66,8 +85,5 @@
   align-self: flex-end;
   font-size: 20px;
 
-  a {
-    color: $purple;
-    text-decoration: none;
-  }
+
 }
