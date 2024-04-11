@@ -1,5 +1,7 @@
 <div class="entry-page-container">
-  <%= link_to "<- All articles", articles_path, class: "mt-3 ms-3" %>
+  <%= link_to articles_path, class: "mt-3 ms-3 all-entries-btn" do %>
+    <i class="fa-solid fa-angles-left"></i>
+  <% end %>
   <div class="entry-page ">
     <div class="objectives-container">
       <h2>Objectives</h2>
@@ -9,37 +11,18 @@
             <%= simple_form_for objective do |f| %>
               <%= f.input :achieved, as: :hidden, label: false, input_html: { value: true } %>
               <%= button_tag(type: 'submit', class: 'button-confirm') do %>
-                <i class="fa-regular fa-circle-check" style="color: $purple;"></i>
+                <i class="fa-regular fa-circle"></i>
               <% end %>
             <% end %>
             <%= objective.name %>
           </div>
         <% else %>
-          <p ><i class="fa-solid fa-circle-check" style="color: $purple;"></i><%= objective.name %></p>
+          <p ><i class="fa-solid fa-circle-check"></i><%= objective.name %></p>
         <% end %>
       <% end %>
       <button type="button" class="btn new-objective-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Add new objective
       </button>
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <%= simple_form_for Objective do |f| %>
-                <%= f.input :name %>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <%= f.button :submit, "create" %>
-              <% end %>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <div class="content-container">
@@ -65,4 +48,4 @@
       </div>
     </div>
   </div>
-</div>
+  <%= render "modal" %>

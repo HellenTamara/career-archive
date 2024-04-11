@@ -166,4 +166,24 @@
   .calendar-entries .simple-calendar .list-entries {
     height: fit-content;
   }
+
+  // entry page
+
+  .entry-page {
+    flex-direction: column-reverse;
+    justify-content: center;
+
+  }
+
+  .objectives-container {
+    width: 90%;
+    margin: 1rem auto;
+    position: unset;
+  }
+
+  .content-container {
+    width: 90%;
+    margin: 1rem auto;
+  }
+
 }
