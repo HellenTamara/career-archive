@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'pages#home'
   resources :articles
   resources :objectives, only: [:index,:create, :update, :destroy]
+  resources :tasks, only: [:create, :update, :destroy]
 end
