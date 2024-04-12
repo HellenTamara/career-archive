@@ -66,6 +66,8 @@
   <% end %>
   <% objective.tasks.each do |task| %>
     <%= task.name %><%= task.deadline %>
-
+    <%= link_to task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+      <i class="fa-regular fa-trash-can"></i>
+    <% end %>
   <% end %>
 <% end %>
