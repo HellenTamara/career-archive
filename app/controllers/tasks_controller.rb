@@ -11,6 +11,11 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     if @task.update(tasks_params)
+      if @task.objective.tasks.count == @task.objective.tasks.where(status: true).count
+        @task.objective.update(achieved: false)
+      else
+        @task.objective.update(achieved: true)
+      end
       redirect_back fallback_location: root_path, notice: 'Task updated successfully.'
     else
       render "objetives/index", status: :unprocessable_entity
