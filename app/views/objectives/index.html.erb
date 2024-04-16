@@ -30,10 +30,10 @@
         <%= link_to objective_path(objective), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
           <i class="fa-regular fa-trash-can"></i>
         <% end %>
-      </div>
-      <button data-action="click->tasks#toggle">
+      <button class="bg-transparent border border-0" data-action="click->tasks#toggle">
         <i class="fa-solid fa-chevron-down"></i>
       </button>
+      </div>
     </div>
     <div class="tasks-container" data-tasks-target="task">
       <% objective.tasks.sort_by(&:deadline).each do |task| %>
