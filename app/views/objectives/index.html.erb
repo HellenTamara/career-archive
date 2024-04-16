@@ -1,106 +1,69 @@
-
-  <h4 class="title">Your objectives</h4>
-  <% @objectives.each do |objective| %>
+<h4 class="title">Your objectives</h4>
+<% @objectives.each do |objective| %>
+  <div class="objective-task-container" data-controller="tasks">
     <div class="objective-container">
-      <% if !objective.achieved? %>
-        <div class="d-flex flex-direction-row ">
-          <%= objective.name %>
+      <%= objective.name %>
+      <% if objective.tasks.any? %>
+        <div class="progress-container">
+          <p>Progress</p>
+          <div class="progress" role="progressbar" aria-label="Example 1px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 3px">
+            <div class="progress-bar" style="width: <%= objective.tasks.count > 0 ? (objective.tasks.where(status: true).count * 100) / objective.tasks.count : 0 %>%; background-color: #7B5FF1;"></div>
+          </div>
+          <p><%= objective.tasks.count > 0 ? (objective.tasks.where(status: true).count * 100) / objective.tasks.count : 0 %> %</p>
         </div>
-      <% else %>
-        <%= objective.name %>
-        <% if objective.tasks.any? %>
-          <div class="progress-container">
-            <p>Progress</p>
-            <div class="progress" role="progressbar" aria-label="Example 1px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 3px">
-              <div class="progress-bar" style="width:  <%= objective.tasks.count > 0? (objective.tasks.where(status: true).count * 100) / objective.tasks.count : 0 %>%; background-color: #7B5FF1;"></div>
-            </div>
-            <p> <%= objective.tasks.count > 0? (objective.tasks.where(status: true).count * 100) / objective.tasks.count : 0 %> % </p>
-          </div>
-        <% end %>
-        <div class="icons">
-          <button type="button" class="btn bg-transparent" data-bs-toggle="modal" data-bs-target="#editObjective<%= objective.id %>">
-            <i class="fa-regular fa-pen-to-square"></i>
-          </button>
-          <!-- Edit Objective Modal -->
-          <div class="modal fade" id="editObjective" tabindex="-1" aria-labelledby="editObjectiveLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="editObjectiveLabel<%= objective.id %>">Edit Objective</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <%= simple_form_for objective do |f|%>
-                    <%= f.input :name %>
-                    <%= f.input :achieved %>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <%= f.submit %>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn bg-transparent" data-bs-toggle="modal" data-bs-target="#createTaskModal<%= objective.id %>">
-            <i class="fa-solid fa-plus"></i>
-          </button>
-          <!-- Create Task Modal -->
-          <div class="modal fade" id="createTaskModal<%= objective.id %>" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="createTaskModalLabel">New Task</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <%= simple_form_for Task.new do |f|%>
-                    <%= f.input :objective_id, as: :hidden, input_html: { value: objective.id } %>
-                    <%= f.input :name %>
-                    <%= f.input :deadline %>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <%= f.submit %>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-          <%= link_to objective_path(objective), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-            <i class="fa-regular fa-trash-can"></i>
-          <% end %>
+      <% end %>
+      <div class="icons">
+        <button type="button" class="btn bg-transparent" data-bs-toggle="modal" data-bs-target="#editObjective<%= objective.id %>">
+          <i class="fa-regular fa-pen-to-square"></i>
+        </button>
+        <!-- Edit Objective Modal -->
+        <div class="modal fade" id="editObjective<%= objective.id %>" tabindex="-1" aria-labelledby="editObjectiveLabel<%= objective.id %>" aria-hidden="true">
+          <!-- Modal content -->
+        </div>
+        <button type="button" class="btn bg-transparent" data-bs-toggle="modal" data-bs-target="#createTaskModal<%= objective.id %>">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <!-- Create Task Modal -->
+        <div class="modal fade" id="createTaskModal<%= objective.id %>" tabindex="-1" aria-labelledby="createTaskModalLabel<%= objective.id %>" aria-hidden="true">
+          <!-- Modal content -->
+        </div>
+        <%= link_to objective_path(objective), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+          <i class="fa-regular fa-trash-can"></i>
         <% end %>
       </div>
+      <button data-action="click->tasks#toggle">
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
     </div>
-    <div class="tasks-container">
-    <% objective.tasks.sort_by(&:deadline).each do |task| %>
-      <div class="task">
-        <div class="task-info">
-          <%= task.name %>
-          <p><%= (task.deadline - Date.today).to_i %> days left</p>
-        </div>
-        <div class="task-icons">
-          <% if task.status %>
-            <%= simple_form_for task do |f| %>
-              <%= f.input :status, as: :hidden, label: false, input_html: { value: false } %>
-              <%= button_tag(type: 'submit', class: 'button-confirm') do %>
-                <i class="fa-regular fa-square-check"></i>
+    <div class="tasks-container" data-tasks-target="task">
+      <% objective.tasks.sort_by(&:deadline).each do |task| %>
+        <div class="task">
+          <div class="task-info">
+            <%= task.name %>
+            <p><%= (task.deadline - Date.today).to_i %> days left</p>
+          </div>
+          <div class="task-icons">
+            <% if task.status %>
+              <%= simple_form_for task do |f| %>
+                <%= f.input :status, as: :hidden, label: false, input_html: { value: false } %>
+                <%= button_tag(type: 'submit', class: 'button-confirm') do %>
+                  <i class="fa-regular fa-square-check"></i>
+                <% end %>
+              <% end %>
+            <% else %>
+              <%= simple_form_for task do |f| %>
+                <%= f.input :status, as: :hidden, label: false, input_html: { value: true } %>
+                <%= button_tag(type: 'submit', class: 'button-confirm') do %>
+                  <i class="fa-regular fa-square"></i>
+                <% end %>
               <% end %>
             <% end %>
-          <% else %>
-            <%= simple_form_for task do |f| %>
-              <%= f.input :status, as: :hidden, label: false, input_html: { value: true } %>
-              <%= button_tag(type: 'submit', class: 'button-confirm') do %>
-                <i class="fa-regular fa-square"></i>
-              <% end %>
+            <%= link_to task_path(task), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+              <i class="fa-regular fa-trash-can"></i>
             <% end %>
-          <% end %>
-          <%= link_to task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-            <i class="fa-regular fa-trash-can"></i>
-          <% end %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-  <% end %>
+<% end %>

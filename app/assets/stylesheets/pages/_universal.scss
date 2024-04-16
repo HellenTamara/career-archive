@@ -8,3 +8,7 @@ $border-gray: #DDDDDD;
 body {
   background-color: $light-gray;
 }
+
+.hide {
+  display: none !important;
+}
