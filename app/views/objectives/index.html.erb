@@ -1,4 +1,7 @@
 <h4 class="title">Your objectives</h4>
+<div class="unachieved">
+  <p>You have <%= @objectives.select{|i| i.achieved == false}.count %> unachieved objectives</p>
+</div>
 <% @objectives.each do |objective| %>
   <div class="objective-task-container" data-controller="tasks">
     <div class="objective-container">
@@ -13,6 +16,9 @@
         </div>
       <% end %>
       <div class="icons">
+        <% if objective.achieved %>
+          <p>Achieved</p>
+        <% end %>
         <button type="button" class="btn bg-transparent" data-bs-toggle="modal" data-bs-target="#editObjective<%= objective.id %>">
           <i class="fa-regular fa-pen-to-square"></i>
         </button>
@@ -20,9 +26,11 @@
         <div class="modal fade" id="editObjective<%= objective.id %>" tabindex="-1" aria-labelledby="editObjectiveLabel<%= objective.id %>" aria-hidden="true">
           <!-- Modal content -->
         </div>
-        <button type="button" class="btn bg-transparent" data-bs-toggle="modal" data-bs-target="#createTaskModal<%= objective.id %>">
-          <i class="fa-solid fa-plus"></i>
-        </button>
+        <% if !objective.achieved %>
+          <button type="button" class="btn bg-transparent" data-bs-toggle="modal" data-bs-target="#createTaskModal<%= objective.id %>">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        <% end %>
         <!-- Create Task Modal -->
         <div class="modal fade" id="createTaskModal<%= objective.id %>" tabindex="-1" aria-labelledby="createTaskModalLabel<%= objective.id %>" aria-hidden="true">
           <!-- Modal content -->
@@ -30,9 +38,11 @@
         <%= link_to objective_path(objective), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
           <i class="fa-regular fa-trash-can"></i>
         <% end %>
-      <button class="bg-transparent border border-0" data-action="click->tasks#toggle">
-        <i class="fa-solid fa-chevron-down"></i>
-      </button>
+        <% if objective.tasks.any? %>
+          <button class="bg-transparent border border-0" data-action="click->tasks#toggle">
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        <% end %>
       </div>
     </div>
     <div class="tasks-container" data-tasks-target="task">

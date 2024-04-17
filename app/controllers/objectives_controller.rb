@@ -2,7 +2,7 @@ class ObjectivesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @objectives = Objective.all.where(user_id: current_user.id).sort_by { |objective| objective.achieved ? 0 : 1 }
+    @objectives = Objective.all.where(user_id: current_user.id).sort_by { |objective| objective.achieved ? 1 : 0 }
   end
 
   def create
