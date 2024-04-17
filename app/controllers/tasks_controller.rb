@@ -12,9 +12,9 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     if @task.update(tasks_params)
       if @task.objective.tasks.count == @task.objective.tasks.where(status: true).count
-        @task.objective.update(achieved: false)
-      else
         @task.objective.update(achieved: true)
+      else
+        @task.objective.update(achieved: false)
       end
       redirect_back fallback_location: root_path, notice: 'Task updated successfully.'
     else
