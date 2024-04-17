@@ -1,6 +1,6 @@
 <h4 class="title">Your objectives</h4>
 <div class="unachieved">
-  <p>You have <%= @objectives.select{|i| i.achieved == false}.count %> unachieved objectives</p>
+  <p>You have <%= @objectives.select{|i| i.achieved == false || i.achieved == nil}.count %> unachieved objectives</p>
 </div>
 <% @objectives.each do |objective| %>
   <div class="objective-task-container" data-controller="tasks">
@@ -17,7 +17,7 @@
       <% end %>
       <div class="icons">
         <% if objective.achieved %>
-          <p>Achieved</p>
+          <i class="fa-solid fa-check"></i>
         <% end %>
         <button type="button" class="btn bg-transparent" data-bs-toggle="modal" data-bs-target="#editObjective<%= objective.id %>">
           <i class="fa-regular fa-pen-to-square"></i>
@@ -45,7 +45,7 @@
         <% end %>
       </div>
     </div>
-    <div class="tasks-container" data-tasks-target="task">
+    <div class="tasks-container hide" data-tasks-target="task">
       <% objective.tasks.sort_by(&:deadline).each do |task| %>
         <div class="task">
           <div class="task-info">
