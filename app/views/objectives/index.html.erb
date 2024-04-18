@@ -37,8 +37,8 @@
                   <%= f.input :achieved %>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <%= f.submit %>
+                  <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                  <%= f.submit 'Edit', class: "modal-btn" %>
                 <% end %>
               </div>
             </div>
@@ -55,18 +55,18 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="createTaskModal<%= objective.id %>">Modal title</h1>
+                <h1 class="modal-title fs-5" id="createTaskModal<%= objective.id %>">New Task</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
                 <%= simple_form_for Task.new do |f|%>
                   <%= f.input :objective_id, as: :hidden, input_html: { value: objective.id } %>
-                  <%= f.input :name %>
+                  <%= f.input :name, label: "Task" %>
                   <%= f.input :deadline %>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <%= f.submit %>
+                  <button type="button" class="btn " data-bs-dismiss="modal">Close</button>
+                  <%= f.submit 'Create Task', class: "modal-btn" %>
                 <% end %>
               </div>
             </div>
