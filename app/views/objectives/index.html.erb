@@ -17,7 +17,7 @@
       <% end %>
       <div class="icons">
         <% if objective.achieved %>
-          <i class="fa-solid fa-check"></i>
+          <i class="fa-solid fa-check" style="color: #7B5FF1;"></i>
         <% end %>
         <button type="button" class="btn bg-transparent" data-bs-toggle="modal" data-bs-target="#editObjective<%= objective.id %>">
           <i class="fa-regular fa-pen-to-square"></i>
@@ -25,6 +25,24 @@
         <!-- Edit Objective Modal -->
         <div class="modal fade" id="editObjective<%= objective.id %>" tabindex="-1" aria-labelledby="editObjectiveLabel<%= objective.id %>" aria-hidden="true">
           <!-- Modal content -->
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="editObjectiveLabel<%= objective.id %>">Edit Objective</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <%= simple_form_for objective do |f|%>
+                  <%= f.input :name %>
+                  <%= f.input :achieved %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                  <%= f.submit 'Edit', class: "modal-btn" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
         <% if !objective.achieved %>
           <button type="button" class="btn bg-transparent" data-bs-toggle="modal" data-bs-target="#createTaskModal<%= objective.id %>">
@@ -34,6 +52,25 @@
         <!-- Create Task Modal -->
         <div class="modal fade" id="createTaskModal<%= objective.id %>" tabindex="-1" aria-labelledby="createTaskModalLabel<%= objective.id %>" aria-hidden="true">
           <!-- Modal content -->
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="createTaskModal<%= objective.id %>">New Task</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <%= simple_form_for Task.new do |f|%>
+                  <%= f.input :objective_id, as: :hidden, input_html: { value: objective.id } %>
+                  <%= f.input :name, label: "Task" %>
+                  <%= f.input :deadline %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn " data-bs-dismiss="modal">Close</button>
+                  <%= f.submit 'Create Task', class: "modal-btn" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
         <%= link_to objective_path(objective), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
           <i class="fa-regular fa-trash-can"></i>
@@ -76,4 +113,5 @@
       <% end %>
     </div>
   </div>
+</div>
 <% end %>
