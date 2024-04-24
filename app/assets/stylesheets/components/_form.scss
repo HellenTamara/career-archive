@@ -13,3 +13,18 @@
     color: $dark-gray;
   }
 }
+
+
+.login-form {
+  margin: 0 auto;
+  width: 78%;
+}
+
+.login-card input.email,
+.login-card input.password {
+  display: flex;
+  flex-direction: column;
+  margin: 0.3rem 0;
+  width: 100%;
+}
+
