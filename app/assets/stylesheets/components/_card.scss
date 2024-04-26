@@ -28,13 +28,25 @@
   text-decoration: none;
 }
 
+.new-entry-container {
+  margin: auto;
+  width: 90%;
+  height: 34rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid #F8F8F8;
+  border-radius: 15px;
+}
+
 .login-card {
   margin: auto;
   height: 32rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row-reverse;
   padding: 0 auto;
   width: 471px;
   background-color: $white;
