@@ -48,6 +48,7 @@ gem 'jquery-rails'
 gem "dotenv-rails"
 gem "cloudinary"
 gem "simple_calendar"
+gem "actiontext"
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
