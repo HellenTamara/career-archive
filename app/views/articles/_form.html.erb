@@ -1,7 +1,7 @@
   <%= simple_form_for @article do |f| %>
     <%= f.input :title %>
     <%= f.input :date %>
-    <%= f.input :content %>
+    <%= f.input :content, as: :rich_text_area, class: 'trix-content' %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.button :submit %>
   <% end %>
