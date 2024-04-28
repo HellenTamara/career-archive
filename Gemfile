@@ -49,6 +49,8 @@ gem "dotenv-rails"
 gem "cloudinary"
 gem "simple_calendar"
 gem "actiontext"
+gem "image_processing", ">= 1.2"
+gem 'rmagick'
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
