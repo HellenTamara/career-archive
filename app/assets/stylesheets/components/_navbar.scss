@@ -12,23 +12,6 @@
   .logo {
     font-size: 19px;
   }
-
-  .login,
-  .signup {
-    font-family: Roboto;
-    color: $purple;
-    text-decoration: none;
-    text-align: center;
-    border: 2px $purple solid;
-    border-radius: 23px;
-    padding: 9px 29px;
-  }
-
-  .signup {
-    background-color: $purple;
-    color: $white;
-    margin-left: 10px;
-  }
 }
 
 .navbar-lewagon .navbar-collapse {

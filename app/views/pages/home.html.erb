@@ -2,9 +2,7 @@
   <div class="d-flex align-items-center mt-5 mb-5 header-container">
     <div class="header-left">
       <h1>Unleash Your Potential: Track, Achieve, Excel with Career Archive</h1>
-      <div class="cta-btn">
-        <%= link_to "Create an account", new_user_registration_path %>
-      </div>
+      <%= link_to "Create an account", new_user_registration_path, class: "cta-btn" %>
     </div>
     <%= image_tag "growth.png", alt: "text", class: "header-img" %>
   </div>
@@ -73,9 +71,7 @@
         <p><i class="fa-solid fa-check"></i>Confidence Boost</p>
       </li>
       <li>
-        <div class="cta-btn">
-          <%= link_to "Create an account", new_user_registration_path %>
-        </div>
+        <%= link_to "Create an account", new_user_registration_path, class: "cta-btn" %>
       </li>
     </ul>
   </div>
