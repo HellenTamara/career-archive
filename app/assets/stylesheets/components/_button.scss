@@ -1,3 +1,57 @@
+.login,
+.signup {
+  font-family: Roboto;
+  color: $purple;
+  text-decoration: none;
+  text-align: center;
+  border: 2px $purple solid;
+  border-radius: 23px;
+  padding: 9px 29px;
+}
+
+.login:hover {
+  color: $white;
+  background-color: $purple;
+  transition: ease-in-out 0.3s;
+}
+
+.signup {
+  background-color: $purple;
+  color: $white;
+  margin-left: 10px;
+}
+
+.signup:hover {
+  background-color: $white;
+  color: $purple;
+  transition: ease-in-out 0.3s;
+}
+
+.cta-btn {
+  color: $white;
+  text-decoration: none;
+  margin-top: 3rem;
+  border-radius: 19px;
+  width: 15rem;
+  height: 2.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $purple;
+
+  a {
+    text-decoration: none;
+    color: $white;
+    font-family: Roboto;
+  }
+}
+
+.cta-btn:hover {
+  color: $white;
+  box-shadow: 0px 10px 10px -6px rgba(0, 0, 0, 0.3);
+  transition: ease-in-out 0.3s;
+}
+
 .button-confirm {
   background-color: $white;
   border: none;
@@ -20,10 +74,34 @@
   margin-top: 0.5rem;
 }
 
+.sign-up-btn:hover {
+  border: 2px $purple solid;
+  color: $purple;
+  transition: ease-in-out 0.3s;
+}
+
 .new-entry-btn {
   background-color: $purple;
   color: $white;
   width: 100%;
   padding: 0.5rem;
   margin-top: 2rem;
+}
+
+.new-entry {
+  background-color: $purple;
+  border-radius: 5px;
+  width: 95%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: center;
+  color: $white;
+  text-decoration: none;
+}
+
+.new-entry:hover {
+  color: $purple;
+  background-color: $white;
+  border: 2px $purple solid;
+  transition: ease-in-out 0.3s;
 }
