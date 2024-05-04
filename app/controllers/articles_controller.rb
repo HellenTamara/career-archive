@@ -7,6 +7,49 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def create_summary
+    @articles = current_user.articles
+    @articles_list = @articles
+
+    if params[:start_date].present?
+      @articles_list = @articles.where(date: params[:start_date]..params[:end_date])
+    end
+
+    # Initialize an empty string to store the text content from all articles
+    text_to_summarize = ""
+
+    # Iterate through each article in @articles_list
+    @articles_list.each do |article|
+      rich_text = ActionText::RichText.find_by(record_id: article.id, record_type: 'Article', name: 'content')
+
+      # Check if rich_text exists before processing
+      if rich_text.present? && rich_text.body.present?
+        # Extract text content and remove HTML tags
+        text_to_summarize += ActionController::Base.helpers.strip_tags(rich_text.body.to_plain_text)
+      else
+        # Handle the case where rich_text or rich_text.body is nil
+        # You can log this event or handle it in any appropriate way
+        Rails.logger.warn("RichText not found or empty for article ID: #{article.id}")
+      end
+    end
+
+    # Use OpenAI to generate a summary
+    client = OpenAI::Client.new
+    chaptgpt_response = client.chat(parameters: {
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: "Generate a summary of the user's achievements, numbers, and progress: #{text_to_summarize}"}]
+    })
+
+    @summary = chaptgpt_response["choices"][0]["message"]["content"]
+
+    render turbo_stream: turbo_stream.replace(
+      'summary-container',
+      partial: 'summary',
+      locals: { summary: @summary }
+    )
+  end
+
+
   def show
     @article = Article.find(params[:id])
     @objectives = Objective.all.where(user_id: current_user.id)
@@ -24,7 +67,6 @@ class ArticlesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-
   end
 
   def edit

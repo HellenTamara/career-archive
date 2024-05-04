@@ -1,5 +1,6 @@
 <div class=" calendar-container">
   <h4 id="align-center">All entries</h4>
+<%= button_to "Create Summary", create_summary_article_path(current_user.id), method: :post %>
   <div class="calendar-entries">
     <%= month_calendar do |date| %>
       <div class="calendar">
@@ -18,4 +19,7 @@
       </div>
     <% end %>
   </div>
+</div>
+<div id="summary-container">
+  <!-- Summary content will be displayed here -->
 </div>
