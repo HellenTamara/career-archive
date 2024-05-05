@@ -8,10 +8,10 @@
             <p><%= date.day %></p>
           </div>
         </div>
-        <% @articles.each do |item| %>
+        <% @entries.each do |item| %>
           <% if item.date == date %>
             <div class="entry">
-              <p> <%= link_to item.title, article_path(item)  %> </p>
+              <p> <%= link_to item.title, entry_path(item)  %> </p>
             </div>
           <% end %>
         <% end %>

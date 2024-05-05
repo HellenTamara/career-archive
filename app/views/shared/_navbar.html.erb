@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-expand-md navbar-lewagon">
   <div class="container-fluid">
     <% if user_signed_in? %>
-      <%= link_to "Career Archive", articles_path, class: "nav-link logo" %>
+      <%= link_to "Career Archive", entries_path, class: "nav-link logo" %>
     <% else %>
       <%= link_to "Career Archive", "/", class: "nav-link logo" %>
     <% end %>
@@ -17,10 +17,10 @@
         <ul class="navbar-nav me-auto">
           <% if user_signed_in? %>
             <li class="nav-item active">
-              <%= link_to "All Entries", articles_path, class: "text-decoration-none text-dark", class: "nav-link" %>
+              <%= link_to "All Entries", entries_path, class: "text-decoration-none text-dark", class: "nav-link" %>
             </li>
             <li class="nav-item ">
-              <%= link_to "New Entry", new_article_path, class: "text-decoration-none text-dark", class: "nav-link" %>
+              <%= link_to "New Entry", new_entry_path, class: "text-decoration-none text-dark", class: "nav-link" %>
             </li>
             <li class="nav-item ">
               <%= link_to "Objectives", objectives_path, class: "text-decoration-none text-dark", class: "nav-link" %>

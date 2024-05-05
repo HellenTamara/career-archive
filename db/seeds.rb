@@ -9,6 +9,6 @@
 #   end
 
 
-10.times do |article|
-  article = Article.create(title: Faker::JapaneseMedia::StudioGhibli.movie, content: Faker::JapaneseMedia::StudioGhibli.quote)
+10.times do |entry|
+  entry = Entry.create(title: Faker::JapaneseMedia::StudioGhibli.movie, content: Faker::JapaneseMedia::StudioGhibli.quote)
 end

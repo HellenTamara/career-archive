@@ -1,4 +1,4 @@
-class Article < ApplicationRecord
+class Entry < ApplicationRecord
   belongs_to :user
   has_many_attached :photos
   has_rich_text :content

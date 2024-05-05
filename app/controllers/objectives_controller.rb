@@ -20,7 +20,7 @@ class ObjectivesController < ApplicationController
     if @objective.update(objectives_params)
       redirect_back fallback_location: root_path, notice: 'Objective updated successfully.'
     else
-      render "articles/show", status: :unprocessable_entity
+      render "entries/show", status: :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ class ObjectivesController < ApplicationController
     if @objective.destroy
       redirect_back fallback_location: root_path, notice: 'Objective deleted successfully.'
     else
-      render "articles/show", status: :unprocessable_entity
+      render "entries/show", status: :unprocessable_entity
     end
   end
 

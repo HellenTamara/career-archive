@@ -1,26 +1,26 @@
-class ArticlesController < ApplicationController
+class EntriesController < ApplicationController
   def index
-    @articles = current_user.articles
-    @articles_list = current_user.articles
+    @entries = current_user.entries
+    @entries_list = current_user.entries
     if params[:start_date].present?
-      @articles_list = Article.where(date: params[:start_date]..params[:end_date], user_id: current_user.id)
+      @entries_list = Entry.where(date: params[:start_date]..params[:end_date], user_id: current_user.id)
     end
   end
 
   def create_summary
-    @articles = current_user.articles
-    @articles_list = @articles
+    @entries = current_user.entries
+    @entries_list = @entries
 
     if params[:start_date].present?
-      @articles_list = @articles.where(date: params[:start_date]..params[:end_date])
+      @entries_list = @entries.where(date: params[:start_date]..params[:end_date])
     end
 
-    # Initialize an empty string to store the text content from all articles
+    # Initialize an empty string to store the text content from all entries
     text_to_summarize = ""
 
-    # Iterate through each article in @articles_list
-    @articles_list.each do |article|
-      rich_text = ActionText::RichText.find_by(record_id: article.id, record_type: 'Article', name: 'content')
+    # Iterate through each entry in @entries_list
+    @entries_list.each do |entry|
+      rich_text = ActionText::RichText.find_by(record_id: entry.id, record_type: 'Entry', name: 'content')
 
       # Check if rich_text exists before processing
       if rich_text.present? && rich_text.body.present?
@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
       else
         # Handle the case where rich_text or rich_text.body is nil
         # You can log this event or handle it in any appropriate way
-        Rails.logger.warn("RichText not found or empty for article ID: #{article.id}")
+        Rails.logger.warn("RichText not found or empty for entry ID: #{entry.id}")
       end
     end
 
@@ -51,46 +51,46 @@ class ArticlesController < ApplicationController
 
 
   def show
-    @article = Article.find(params[:id])
+    @entry = Entry.find(params[:id])
     @objectives = Objective.all.where(user_id: current_user.id)
   end
 
   def new
-    @article = Article.new
+    @entry = Entry.new
   end
 
   def create
-    @article = Article.new(params_filtered)
-    @article.user = current_user
-    if @article.save
-      redirect_to article_path(@article)
+    @entry = Entry.new(params_filtered)
+    @entry.user = current_user
+    if @entry.save
+      redirect_to entry_path(@entry)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
-    @article = Article.find(params[:id])
+    @entry = Entry.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
-    if @article.update(params_filtered)
-      redirect_to article_path(@article)
+    @entry = Entry.find(params[:id])
+    if @entry.update(params_filtered)
+      redirect_to entry_path(@entry)
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @article = Article.find(params[:id])
-    @article.destroy
-    redirect_to articles_path, status: :see_other
+    @entry = Entry.find(params[:id])
+    @entry.destroy
+    redirect_to entries_path, status: :see_other
   end
 
   private
 
   def params_filtered
-    params.require(:article).permit(:title, :content,:date, :start_date, :end_date, photos:[] )
+    params.require(:entry).permit(:title, :content,:date, :start_date, :end_date, photos:[] )
   end
 end
