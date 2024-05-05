@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'pages#home'
-  resources :articles do
+  resources :entries do
     member do
       post 'create_summary'
     end
