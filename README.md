@@ -1,5 +1,7 @@
 # 🎯 Career Archive (under construction)
 
+<img src="https://i.ibb.co/hZD32vN/localhost-3000-High-Res-1.png" alt="career-archive-home" border="0" width="33%"> <img src="https://i.ibb.co/m601Ky9/localhost-3000-High-Res-2.png" alt="career-archive-calendar" border="0" width="33%"><img src="https://i.ibb.co/nn0kk5M/localhost-3000-High-Res-3.png" alt="localhost-3000-High-Res-3" border="0" width="33%">
+
 ## Introduction
 
 Welcome to Career Archive, a comprehensive web application designed to help you keep track of your accomplishments in your job for future evaluations, job hunting, and salary negotiation. With Career Archive, you can organize and document your professional achievements effectively.
@@ -10,6 +12,7 @@ Welcome to Career Archive, a comprehensive web application designed to help you 
 - **Create and Mark Complete on Your Own Goals:** Set your own professional goals and mark them as complete once achieved.
 - **Document Upload:** Attach relevant documents or files to each accomplishment entry for reference.
 - **Search and Filter:** Quickly search and filter through your accomplishments based on dates.
+- **AI Summary** Quickly generate a summary of your achievements for your resume or reports.
 
 ## Getting Started
 ### Setup
@@ -49,6 +52,8 @@ rails s
 - **Authentication:** [Devise](https://github.com/heartcombo/devise)
 - **Form Handling:** [Simple Form](https://github.com/heartcombo/simple_form)
 - **File Uploads:** [Cloudinary](https://cloudinary.com/)
+- **Calendar:** [Simple Calendar](https://github.com/excid3/simple_calendar)
+- **Generative AI:** [Open AI](https://openai.com/index/openai-api)
 
 ## Usage
 
@@ -58,6 +63,7 @@ rails s
 4. Upload relevant documents or files for each accomplishment.
 5. Utilize search and filter functionalities to easily access specific accomplishments.
 6. Keep your accomplishment archive up to date for future evaluations, job hunting, or salary negotiations.
+7. Generate summaries for your achievements with a click.
 
 ## Future Updates
 
@@ -65,7 +71,6 @@ We're continuously working on improving Career Archive to provide you with more 
 
 - **Enhanced Filtering:** Implement advanced filtering options to enable users to search and filter through accomplishments more efficiently.
 - **Integration with LinkedIn:** Allow users to import their professional achievements from LinkedIn to streamline data entry.
-- **Visualization Tools:** Introduce visualization tools to analyze and visualize patterns and trends in your accomplishments.
 - **Collaboration Features:** Enable users to share their accomplishment archives with mentors or colleagues for feedback or collaboration.
 
 Stay tuned for these exciting updates!
