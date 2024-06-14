@@ -1,6 +1,6 @@
 # 🎯 Career Archive (under construction)
 
-<img src="https://i.ibb.co/hZD32vN/localhost-3000-High-Res-1.png" alt="career-archive-home" border="0" width="33%"><img src="https://i.postimg.cc/HLXX4kBd/localhost-3000-High-Res-2.png" alt="career-archive-calendar" border="0" width="33%"><img src="https://i.ibb.co/nn0kk5M/localhost-3000-High-Res-3.png" alt="localhost-3000-High-Res-3" border="0" width="33%">
+<img src="https://i.ibb.co/kKs1RR6/career-archive-full.png" alt="career-archive-home" border="0" width="33%"><img src="https://i.postimg.cc/HLXX4kBd/localhost-3000-High-Res-2.png" alt="career-archive-calendar" border="0" width="33%"><img src="https://i.ibb.co/nn0kk5M/localhost-3000-High-Res-3.png" alt="localhost-3000-High-Res-3" border="0" width="33%">
 
 ## Introduction
 
